@@ -1,0 +1,25 @@
+# $root = 'C:\ady\landingzone'
+# $items = (Get-Content "C:\ady\powershell\delete.csv") -split ',' | Select-Object -Skip 1
+
+# Get-ChildItem $root -Recurse -Force |
+#   Where-Object { $items -contains $_.Name } |
+#   Remove-Item -Verbose
+
+
+
+
+# powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -NonInteractive -noexit -File C:\ady\powershell\Delete_files_listed_inside_csv.ps1
+
+
+
+$root = 'C:\ady\landingzone'
+$items = (Get-Content "C:\ady\powershell\delete.csv") -split ',' | Select-Object -Skip 1
+
+Get-ChildItem $root -Recurse -Force |
+  Where-Object { $items -contains $_.Name } |
+  Remove-Item -Verbose
+
+
+
+
+powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -NonInteractive -noexit -File C:\ady\powershell\Delete_files_listed_inside_csv.ps1
